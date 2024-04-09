@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo sh ./install_scripts/install_dependencies.sh
+sh ./install_scripts/install_dependencies.sh
 sh ./install_scripts/build_neovim.sh
 sh ./install_scripts/setupvim.sh
 sh ./install_scripts/install_setupJuceProject.sh
