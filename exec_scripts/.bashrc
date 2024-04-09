@@ -2,12 +2,11 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! echo "$PATH" | grep -q "$HOME/.local/bin:$HOME/bin:"; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
@@ -16,32 +15,37 @@ export PATH
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+if [ -d "$HOME/.bashrc.d" ]; then
+    for rc in "$HOME/.bashrc.d"/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
 fi
 
+# Clean up
 unset rc
 
-$path
-# set <caps lock> as <ESC>
+# Keyboard configuration
+# Note: The setxkbmap command is not shell-specific, but you should ensure it's executed in a graphical session
 setxkbmap -option caps:escape
 setxkbmap de
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "[ 'caps:swapescape']"
+# Note: The dconf command is also not shell-specific, but make sure it's executed in a Gnome session
+dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
 
-# aliases
+# Aliases
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias vim='nvim'
 alias vconf='cd ~/.config/nvim/lua/custom/ && nvim'
-alias ide='cd ~/Projects/NextSTudio/ && nvim'
+alias ide='cd ~/Projects/NextStudio/ && nvim'
 alias cls='clear'
-alias ndir='cd ~/Projects/NextSTudio/'
+alias ndir='cd ~/Projects/NextStudio/'
 alias ndebug='ndir && bash ./build.sh d && ./start.sh'
 alias nreldeb='ndir && bash ./build.sh rd && ./start.sh'
 alias nbuild='ndir && bash ./build.sh r && ./start.sh'
 alias gst='git status'
+
+# Starship prompt initialization
 eval "$(starship init bash)"
+
