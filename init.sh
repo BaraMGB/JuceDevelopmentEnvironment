@@ -8,10 +8,10 @@ cp $(pwd)/exec_scripts/.zshrc ~/.bashrc
 
 # setup mc (dark mode/vim/ hjkl for moving)
 cp -rf $(pwd)/exec_scripts/mc ~/.config/
-sudo cp -f ~/.config/mc/mc.default.keymap /etc/mc/mc.default.keymap
+cp -f ~/.config/mc/mc.default.keymap /etc/mc/mc.default.keymap
 
 # install starship promt
-sudo curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh
 
 sh ./install_scripts/install_nerd_font.sh   
 
