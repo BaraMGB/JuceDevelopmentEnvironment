@@ -1,1 +1,8 @@
-sudo apt update && sudo apt install -y git && git clone https://gitlab.com/BaraMGB/buildenv.git && cd buildenv && sh init.sh
+´´´
+sudo apt update && sudo apt install -y git && git clone https://github.com/BaraMGB/buildEnvi.git && cd buildEnvi && sudo sh init.sh
+´´´
+
+or as root:
+´´´
+apt update && apt install -y git && git clone https://github.com/BaraMGB/buildEnvi.git && cd buildEnvi && sh init.sh
+´´´
