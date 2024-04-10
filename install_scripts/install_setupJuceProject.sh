@@ -11,3 +11,4 @@ git clone https://github.com/BaraMGB/setup_juce_project.git
 mkdir -p $HOME_DIR/bin
 ln -s $(pwd)/setup_juce_project/setup_juce_project.sh $HOME_DIR/bin/setup_juce_project
 
+sudo chown $SUDO_USER:$SUDO_USER $HOME_DIR/bin
