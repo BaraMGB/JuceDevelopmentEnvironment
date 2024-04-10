@@ -4,7 +4,7 @@ sh ./install_scripts/build_neovim.sh
 sh ./install_scripts/setupvim.sh
 sh ./install_scripts/install_setupJuceProject.sh
 cp $(pwd)/exec_scripts/.bashrc ~/.bashrc
-cp $(pwd)/exec_scripts/.zshrc ~/.bashrc
+cp $(pwd)/exec_scripts/.zshrc ~/.zashrc
 
 # setup mc (dark mode/vim/ hjkl for moving)
 cp -rf $(pwd)/exec_scripts/mc ~/.config/
