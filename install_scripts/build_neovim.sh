@@ -7,7 +7,7 @@ else
 fi
 
 cd
-mkdir -p Projects
+mkdir -p $HOME_DIR/Projects
 cd $HOME_DIR/Projects/
 git clone https://github.com/neovim/neovim.git
 cd neovim
