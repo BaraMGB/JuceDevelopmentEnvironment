@@ -1,8 +1,14 @@
 #!/bin/bash
 
-mkdir -p ~/.config
-cd ~/.config
+if [ "$SUDO_USER" ]; then
+    HOME_DIR=$(getent passwd "$SUDO_USER" | cut -d: -f6)
+else
+    HOME_DIR=$HOME
+fi
 
-git clone https://github.com/NvChad/NvChad.git nvim -b v2.0
-cd nvim/lua
-git clone https://github.com/BaraMGB/nvchad_custom_settings.git custom
+mkdir -p $HOME_DIR/.config
+cd $HOME_DIR/.config
+
+git clone https://github.com/BaraMGB/kickstart.nvim.git nvim
+
+sudo chown -R $SUDO_USER:$SUDO_USER $HOME_DIR/.config/nvim
